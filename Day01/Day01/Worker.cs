@@ -13,7 +13,13 @@ namespace Day01
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             Console.WriteLine("Hello World!");
-            return base.StopAsync(stoppingToken);
+            return DoWork();
+        }
+
+        public static async Task DoWork()
+        {
+            Console.WriteLine("Doing work");
+            return;
         }
     }
 }
