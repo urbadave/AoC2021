@@ -13,13 +13,9 @@ namespace Day01
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             Console.WriteLine("Hello World!");
-            return DoWork();
+            var tcs = new TaskCompletionSource();
+            return tcs.Task;
         }
 
-        public static async Task DoWork()
-        {
-            Console.WriteLine("Doing work");
-            return;
-        }
     }
 }
