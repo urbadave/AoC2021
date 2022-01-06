@@ -19,7 +19,8 @@ namespace Day01
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
-                    services.AddSingleton<IDepthDto>(new DepthDto());
+                    services.AddTransient<IDepthDto, DepthDto>();
+                    services.AddTransient<IDepthCounter, DepthCounter>();
                 });
     }
 }

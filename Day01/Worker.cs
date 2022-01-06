@@ -11,19 +11,23 @@ namespace Day01
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IDepthDto _depthDto;
+        private readonly IDepthCounter _counter;
 
         public Worker(ILogger<Worker> logger,
-            IDepthDto depthDto)
+            IDepthCounter counter)
         {
             _logger = logger;
-            _depthDto = depthDto;
+            _counter = counter;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            Console.WriteLine($"there are {_depthDto.TestData.Count} test depths and {_depthDto.RealData.Count} real depths.");
+            Console.WriteLine($"Test depth increases {_counter.GetDepthIncreases(true)} times");
+            Console.WriteLine($"Real depth increases {_counter.GetDepthIncreases()} times");
+
+            Console.WriteLine($"Test depth increases {_counter.GetWindowDepthIncreases(true)} times");
+            Console.WriteLine($"Real depth increases {_counter.GetWindowDepthIncreases()} times");
         }
     }
 }
