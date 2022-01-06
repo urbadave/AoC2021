@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
 
-namespace Day01
+namespace BoilerPlate
 {
     class Program
     {

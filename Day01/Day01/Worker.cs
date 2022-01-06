@@ -6,15 +6,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Day01
+namespace BoilerPlate
 {
     public class Worker : BackgroundService
     {
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             Console.WriteLine("Hello World!");
-            var tcs = new TaskCompletionSource();
-            return tcs.Task;
+            
+            return Task.CompletedTask;
         }
 
     }
